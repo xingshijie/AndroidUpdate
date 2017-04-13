@@ -1,15 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alo7.android.update">
+          package="com.alo7.android.update">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-    <application android:allowBackup="true" android:label="@string/app_name"
-        android:supportsRtl="true">
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name">
         <activity
             android:name="com.alo7.android.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.alo7.android.update.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider"/>
+        </provider>
     </application>
 
 </manifest>
